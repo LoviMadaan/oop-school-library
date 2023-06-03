@@ -131,12 +131,10 @@ ruby filename.rb
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Project 2: use the "Decorator" design pattern.
-- [ ] Project 3: set up associations.
-- [ ] Project 4: add basic UI.
-- [ ] Project 5: refactor the code.
-- [ ] Project 6: preserve data.
-- [ ] Project 7: unit tests.
+- [ ] To add the mobile version of the app
+- [ ] To deploy the app
+- [ ] To add a School class
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
