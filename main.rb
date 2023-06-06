@@ -1,37 +1,35 @@
 require_relative 'app'
-require_relative 'ui_methods'
+require_relative 'refractor/logic'\
 
-def main
-  puts 'Welcome To School Library App!'
-  puts "\n"
-  app = App.new
-  choices = {
-    1 => :list_books,
-    2 => :list_people,
-    3 => :create_person,
-    4 => :create_book,
-    5 => :create_rental,
-    6 => :list_rentals_for_person,
-    7 => :quit
-  }
+SELECTIONS = {
+  1 => :list_all_books,
+  2 => :list_all_people,
+  3 => :create_person,
+  4 => :create_book,
+  5 => :create_rental,
+  6 => :list_all_rentals,
+  7 => :exit_app
+}.freeze
 
+def app_start(logic_input)
   loop do
-    display_menu
-    choice = gets.chomp.to_i
-    handle_choice(choice, app, choices)
-    break if choice == 7
+    logic_input.input_logic
+    user_input = gets.chomp.to_i
+
+    if SELECTIONS.key?(user_input)
+      run = SELECTIONS[user_input]
+      logic_input.send(run)
+      break if run == :exit_app
+    else
+      puts 'Enter the correct option: '
+    end
   end
 end
 
-def display_menu
-  puts 'Please choose an option by entering a number:'
-  puts '1. List all books'
-  puts '2. List all people'
-  puts '3. Create a person'
-  puts '4. Create a book'
-  puts '5. Create a rental'
-  puts '6. List rentals for a person'
-  puts '7. Exit'
+def main
+  app = App.new
+  logic_input = LogicInput.new(app)
+  puts 'Welcome to the OOP School Library App!'
+  app_start(logic_input)
 end
-
 main

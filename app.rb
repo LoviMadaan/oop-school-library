@@ -1,27 +1,51 @@
-require_relative 'person'
+require_relative 'student'
+require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
-require_relative 'students'
-require_relative 'teacher'
-require_relative './modules/list_books'
-require_relative './modules/list_people'
-require_relative './modules/create_persons'
-require_relative './modules/list_rentals'
-require_relative './modules/create_rental'
-require_relative './modules/create_book'
 
 class App
-  include ListBooks
-  include ListPeople
-  include CreatePerson
-  include CreateBook
-  include CreateRental
-  include ListRentals
-  attr_accessor :people, :books, :rentals
+  attr_reader :books, :people
 
   def initialize
-    @people = []
     @books = []
-    @rentals = []
+    @people = []
   end
+
+  def create_book(title, author)
+    book = Book.new(title, author)
+    @books << book
+  end
+
+  def list_all_books
+    @books.each { |book| puts "Title: #{book.title} Author: #{book.author}" }
+  end
+
+  def create_student(age, classroom, name, parent_permission)
+    student = Student.new(age, classroom, name, parent_permission: parent_permission)
+    @people << student
+  end
+
+  def create_teacher(age, specialization, name)
+    teacher = Teacher.new(age, specialization, name)
+    @people << teacher
+  end
+
+  def list_all_people
+    @people.each { |person| puts "ID: #{person.id} Name: #{person.name} Age: #{person.age}" }
+  end
+
+  def create_rental(date, people, book)
+    Rental.new(date, people, book)
+  end
+
+  def list_all_rentals(id)
+    @people.find { |person| person.id == id }
+  end
+
+  def exit_app(_app)
+    puts 'Thanks for using the app!'
+    exit
+  end
+
 end
+
