@@ -46,6 +46,4 @@ class App
     puts 'Thanks for using the app!'
     exit
   end
-
 end
-

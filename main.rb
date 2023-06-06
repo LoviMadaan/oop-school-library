@@ -1,5 +1,5 @@
 require_relative 'app'
-require_relative 'refractor/logic'\
+require_relative 'refractor/logic' \
 
 SELECTIONS = {
   1 => :list_all_books,
