@@ -1,49 +1,41 @@
 require_relative 'nameable'
-require_relative 'trimmer_decorator'
 require_relative 'capitalize_decorator'
+require_relative 'trimmer_decorator'
 require_relative 'rental'
 class Person < Nameable
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
+  attr_reader :id
+  attr_accessor :name, :age, :rentals, :parent_permission
 
-  # @people = [] # Array of Person instances
-
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name, parent_permission)
     super()
-    @id = Random.rand(1..1000)
-    @age = age
+    @id = Random.rand(1..500)
     @name = name
+    @age = age
     @parent_permission = parent_permission
     @rentals = []
-    # self.class.add_person(self) # Add the instance to the class instance variable
   end
 
-  def can_use_services
-    of_age? || @parent_permission
-  end
-
-  def correct_name
-    @name
-  end
-
-  def add_rental(book, date)
+  def add_rental(date, book)
     Rental.new(date, self, book)
   end
-
-  # def self.add_person(person)
-  #   @people ||= [] # Ensure @people is not nil
-  #   @people.push(person)
-  # end
-
-  # Class method only accessible through the class, not by the instances.
-  # Returns all the instances of the class.
-  # def self.all
-  #   @people
-  # end
 
   private
 
   def of_age?
-    @age >= 18
+    return true if @age >= 18
+
+    false
+  end
+
+  public
+
+  def can_use_services?
+    return true if of_age? || @parent_permission == true
+
+    false
+  end
+
+  def correct_name
+    @name
   end
 end
