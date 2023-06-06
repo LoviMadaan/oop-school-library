@@ -125,6 +125,12 @@ ruby filename.rb
 - Twitter: [@lovinarang](https://twitter.com/lovinarang)
 - LinkedIn: [LoviMadaan]https://www.linkedin.com/in/lovi-madaan-b27439175
 
+👤 **Christian Kiyong**
+
+- GitHub: [krisbobo](https://github.com/krisbobo)
+- Twitter: [ChrisboboSys](https://twitter.com/ChrisboboSys)
+- LinkedIn: [kiyong-christian](https://linkedin.com/in/christian-kiyong)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

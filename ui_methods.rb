@@ -1,4 +1,4 @@
-require_relative 'logic'
+require_relative 'logic_classes'
 
 def handle_choice(choice, app, choices)
   if choices.key?(choice)

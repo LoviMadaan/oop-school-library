@@ -2,7 +2,7 @@ require_relative 'app'
 require_relative 'ui_methods'
 
 def main
-  puts 'Welcome To OOP School Library App!'
+  puts 'Welcome To School Library App!'
   puts "\n"
   app = App.new
   choices = {
@@ -33,4 +33,5 @@ def display_menu
   puts '6. List rentals for a person'
   puts '7. Exit'
 end
+
 main

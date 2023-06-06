@@ -1,10 +1,7 @@
-require_relative 'base_decorator'
+require './decorator'
+
 class CapitalizeDecorator < Decorator
   def correct_name
-    if @nameable.is_a?(String)
-      @nameable.capitalize
-    else
-      @nameable
-    end
+    super.capitalize
   end
 end
