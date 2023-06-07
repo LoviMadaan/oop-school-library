@@ -9,7 +9,7 @@ class Book
     @rented = false
   end
 
-  def add_rental(rentals)
+  def add_rental(_rentals)
     @rentals << rental
   end
 end

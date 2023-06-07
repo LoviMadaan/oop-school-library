@@ -58,7 +58,7 @@ class LogicInput
     age = gets.chomp.to_i
     print 'Specialization: '
     specialization = gets.chomp
-    @app.create_teacher(age, specialization, name,)
+    @app.create_teacher(age, specialization, name)
     puts 'Person(Teacher) created successfully!'
   end
 
