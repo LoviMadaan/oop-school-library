@@ -1,68 +1,42 @@
-require_relative 'handlers'
-require './book_ui'
-require './person_ui'
-require './rental_ui'
+require_relative 'app'
+require_relative 'refractor/logic'
+SELECTION = {
+  1 => :list_all_books,
+  2 => :list_all_people,
+  3 => :create_person,
+  4 => :create_book,
+  5 => :create_rental,
+  6 => :list_all_rentals,
+  7 => :exit
+}.freeze
 
-class App
-  include Handlers
+def app_start(logic_input, app)
+  loop do
+    logic_input.logic_display
+    user_input = gets.chomp.to_i
 
-  def initialize
-    @people = []
-    @books = []
-    @rentals = []
-  end
-
-  def run
-    puts 'Welcome to School Library App!'
-
-    loop do
-      print_options
-
-      option = gets.chomp
-
-      break if option == '7'
-
-      handle_option option
-    end
-
-    puts 'Thank you for using this app!'
-  end
-
-  def handle_option(option)
-    case option
-    when '1'
-      list_books
-    when '2'
-      list_people
-    when '3'
-      create_person
-    when '4'
-      create_book
-    when '5'
-      create_rental
-    when '6'
-      list_rentals_by_person_id
+    if SELECTION.key?(user_input)
+      run = SELECTION[user_input]
+      if run == :exit
+        app.store_data_in_files('data/people.json', app.people)
+        app.store_data_in_files('data/books.json', app.books)
+        app.store_data_in_files('data/rentals.json', app.rentals)
+        break
+      end
+      logic_input.send(run)
     else
-      puts 'That is not a valid option'
+      puts 'Enter the correct option: '
     end
-  end
-
-  def print_options
-    puts
-    puts 'Please choose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'
   end
 end
 
 def main
   app = App.new
-  app.run
+  app.books = app.get_data_from_files('data/books.json')
+  app.people = app.get_data_from_files('data/people.json')
+  app.rentals = app.get_data_from_files('data/rentals.json')
+  logic_input = LogicInput.new(app)
+  puts 'Welcome to the School Library App!'
+  app_start(logic_input, app)
 end
-
 main

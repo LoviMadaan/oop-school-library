@@ -1,22 +1,15 @@
+require_relative 'rental'
+
 class Book
-  attr_accessor :title, :author
-  attr_reader :rentals
+  attr_accessor :title, :author, :rented
 
   def initialize(title, author)
     @title = title
     @author = author
-    @rentals = []
+    @rented = false
   end
 
-  def to_s
-    "Title: \"#{@title}\", Author: #{author}"
-  end
-
-  def to_json(*args)
-    {
-      JSON.create_id => self.class.name,
-      'title' => @title,
-      'author' => @author
-    }.to_json(*args)
+  def add_rental(rentals)
+    @rentals << rental
   end
 end

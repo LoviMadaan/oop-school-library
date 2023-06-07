@@ -1,0 +1,29 @@
+[
+    {
+      "type": "student",
+      "age": 20,
+      "classroom": "7",
+      "name": "Jiya",
+      "parent_permission": {
+        "parent_permission": "N"
+      },
+      "id": 120
+    },
+    {
+      "type": "teacher",
+      "age": 56,
+      "specialization": "Web",
+      "name": "tari",
+      "id": 130
+    },
+    {
+      "type": "student",
+      "age": 18,
+      "classroom": "6",
+      "name": "Piya",
+      "parent_permission": {
+        "parent_permission": "Y"
+      },
+      "id": 100
+    }
+  ]

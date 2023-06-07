@@ -1,27 +1,13 @@
+require_relative 'app'
+
 class Rental
-  attr_accessor :date
-  attr_reader :book, :person
+  attr_accessor :date, :person, :book
 
-  def initialize(date, book, person)
+  def initialize(date, person, book)
     @date = date
-
-    @book = book
-    book.rentals << self
-
     @person = person
-    person.rentals << self
-  end
-
-  def to_s
-    "Date: #{@date}, Book \"#{book.title}\" by #{book.author}"
-  end
-
-  def to_json(*args)
-    {
-      JSON.create_id => self.class.name,
-      'date' => @date,
-      'person_id' => @person.id,
-      'book_id' => @book.id
-    }.to_json(*args)
+    @book = book
+    # @person.add_rental(self, book)
+    @book.rented = true
   end
 end
