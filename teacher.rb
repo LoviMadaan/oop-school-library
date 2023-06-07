@@ -1,4 +1,4 @@
-equire_relative 'person'
+require_relative 'person'
 
 class Teacher < Person
   def initialize(age, specialization, name = 'Unknown')
