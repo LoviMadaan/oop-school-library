@@ -1,21 +1,24 @@
-require_relative 'rental'
+require_relative 'corrector'
 
 class Person
-  attr_reader :id
-  attr_accessor :name, :age, :rentals, :parent_permission, :books
+  attr_accessor :name, :age
+  attr_reader :id, :rentals
 
-  def initialize(age, name, parent_permission, id = nil)
-    @id = id || Random.rand(1..500)
+  def initialize(age:, parent_permission: true, name: 'Unknown')
+    @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
     @rentals = []
-    @books = []
   end
 
-  def add_rental(rental, book)
-    @rentals << rental
-    @books << book
+  def can_use_services?
+    of_age? || @parent_permission
+  end
+
+  def validate_name
+    corrector = Corrector.new
+    @name = corrector.correct_name @name
   end
 
   private
@@ -24,9 +27,17 @@ class Person
     @age >= 18
   end
 
-  public
+  def to_s
+    "Name: #{@name}, ID: #{@id}, Age: #{@age}"
+  end
 
-  def can_use_services?
-    of_age? || @parent_permission
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission
+    }.to_json(*args)
   end
 end
