@@ -11,11 +11,4 @@ describe Book do
         book = Book.new('Aaradhya', 'Madaan')
         expect(book).to have_attributes(title: 'Aaradhya', author: 'Madaan')
     end
-
-    # it 'can add a rental' do
-    #     book = Book.new('Aaradhya', 'Madaan')
-    #     rental = Rental.new('20-2-2022', '23', 'Aaradhya')
-    #     book.add_rental(rental)
-    #     expect(book.rentals).to include(rental)
-    # end
 end
