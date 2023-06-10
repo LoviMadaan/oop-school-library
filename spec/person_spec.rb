@@ -20,3 +20,32 @@ describe Person do
     end
   end
 end
+
+RSpec.describe Person do
+  let(:person) { Person.new(28, 'Regina', 'True') }
+
+  describe '#can_use_services?' do
+    context 'when the person is of age' do
+      it 'returns true' do
+        person.age = 28
+        expect(person.can_use_services?).to eq(true)
+      end
+    end
+  end
+
+  describe '#correct_name' do
+    it 'returns the person\'s name' do
+      person.name = 'Regina'
+      expect(person.correct_name).to eq('Regina')
+    end
+  end
+
+  describe '#of_age?' do
+    context 'when the person is of age' do
+      it 'returns true' do
+        person.age = 28
+        expect(person.send(:of_age?)).to eq(true)
+      end
+    end
+  end
+end
