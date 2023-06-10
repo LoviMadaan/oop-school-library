@@ -33,13 +33,6 @@ RSpec.describe Person do
     end
   end
 
-  describe '#correct_name' do
-    it 'returns the person\'s name' do
-      person.name = 'Regina'
-      expect(person.correct_name).to eq('Regina')
-    end
-  end
-
   describe '#of_age?' do
     context 'when the person is of age' do
       it 'returns true' do

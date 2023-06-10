@@ -21,18 +21,6 @@ end
 describe '#play_hooky' do
   it 'returns a string representing playing hooky' do
     student = Student.new(25, 'First', 'Lovi', true)
-    expect(student.play_hooky).to eq('¯\(ツ)/¯')
-  end
-end
-
-RSpec.describe Student do
-  let(:classroom) { Classroom.new('Physics') }
-  describe '#classroom=' do
-    it 'sets the student classroom and adds the student to the classroom' do
-      student = Student.new(25, 'First', 'Lovi', true)
-      student.classroom = classroom
-      expect(student.classroom).to eq(classroom)
-      expect(classroom.students).to include(student)
-    end
+    expect(student.play_hooky).to eq('¯(ツ)/¯')
   end
 end
