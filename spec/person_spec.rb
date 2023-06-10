@@ -1,4 +1,5 @@
 require_relative '../person'
+require_relative '../rental'
 
 describe Person do
   context 'When a student or teacher is created' do
@@ -29,6 +30,18 @@ RSpec.describe Person do
       it 'returns true' do
         person.age = 28
         expect(person.can_use_services?).to eq(true)
+      end
+    end
+  end
+
+  describe '#add_rental' do
+    context 'when the person is of age' do
+      it 'returns true' do
+        book = Book.new('Things Fall Apart', 'Chinua Achebe')
+        rental = Rental.new('6/25/2012', person, book)
+        person.add_rental(rental, book)
+        expect(person.rentals).to eq([rental])
+        expect(person.books).to eq([book])
       end
     end
   end
