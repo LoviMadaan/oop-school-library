@@ -120,7 +120,7 @@ class LogicInput
     puts 'Created the Rental successfully!'
   end
 
-  def exit_app(_app)
+  def exit_app
     puts 'Thanks for using the app!'
     exit
   end
