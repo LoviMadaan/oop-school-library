@@ -3,8 +3,8 @@ class LogicInput
     @app = app
   end
 
-  def input_logic
-    selections = [
+  def logic_display
+    options = [
       'List all books',
       'List all people',
       'Create a person',
@@ -14,7 +14,7 @@ class LogicInput
       'Exit'
     ]
     puts 'Please choose an option by entering a number:'
-    selections.each_with_index { |option, index| puts "#{index + 1} - #{option}" }
+    options.each_with_index { |option, index| puts "#{index + 1} - #{option}" }
   end
 
   def create_book
@@ -58,8 +58,10 @@ class LogicInput
     age = gets.chomp.to_i
     print 'Specialization: '
     specialization = gets.chomp
-    @app.create_teacher(age, specialization, name)
-    puts 'Person(Teacher) created successfully!'
+    print 'ID: '
+    id = gets.chomp.to_i
+    @app.create_teacher(age, specialization, name, id)
+    puts 'Person (Teacher) created successfully!'
   end
 
   def create_person
@@ -103,25 +105,38 @@ class LogicInput
     end
   end
 
-  def create_rental
+  def select_book
     puts 'Select a book from the following list by number'
     @app.books.each_with_index do |book, i|
       puts "#{i} Title = #{book.title} Author = #{book.author}"
     end
     book_index = gets.chomp.to_i
-    puts 'Select a person from the following list by number(not ID)'
-    @app.people.each.with_index do |person, index|
-      puts "#{index}) #{[person.class.name]} Name #{person.name}, ID #{person.id}, Age #{person.age}"
+    while book_index.negative? || book_index >= @app.books.length
+      puts 'Invalid book index. Please select a valid book from the list:'
+      book_index = gets.chomp.to_i
     end
-    person_index = gets.chomp.to_i
-    puts 'Date(YYYY-MM-DD):'
-    date = gets.chomp
-    @app.create_rental(date, @app.people[person_index], @app.books[book_index])
-    puts 'Created the Rental successfully!'
+    book_index
   end
 
-  def exit_app
-    puts 'Thanks for using the app!'
-    exit
+  def select_person
+    puts 'Select a person from the following list by number (not ID)'
+    @app.people.each.with_index do |person, index|
+      puts "#{index}) #{person.class.name} Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    person_index = gets.chomp.to_i
+    while person_index.negative? || person_index >= @app.people.length
+      puts 'Invalid person index. Please select a valid person from the list:'
+      person_index = gets.chomp.to_i
+    end
+    person_index
+  end
+
+  def create_rental
+    book_index = select_book
+    person_index = select_person
+    puts 'Date (YYYY-MM-DD):'
+    date = gets.chomp
+    @app.create_rental(date, person_index, book_index)
+    puts 'Created the Rental successfully!'
   end
 end

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "rental",
+    "date": "6000",
+    "person": 120,
+    "book": "Lovi"
+  },
+  {
+    "type": "rental",
+    "date": "4000",
+    "person": 130,
+    "book": "Pari"
+  },
+  {
+    "type": "rental",
+    "date": "2023-05-12",
+    "person": 2,
+    "book": "Lovi"
+  }
+]
