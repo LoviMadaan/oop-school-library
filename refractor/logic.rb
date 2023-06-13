@@ -63,7 +63,6 @@ class LogicInput
     @app.create_teacher(age, specialization, name, id)
     puts 'Person (Teacher) created successfully!'
   end
-  
 
   def create_person
     number = nil
