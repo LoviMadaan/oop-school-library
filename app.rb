@@ -27,10 +27,10 @@ class App
     @people << student
   end
 
-  def create_teacher(age, specialization, name)
-    teacher = Teacher.new(age, specialization, name)
+  def create_teacher(age, specialization, name, id)
+    teacher = Teacher.new(age, specialization, name, id)
     @people << teacher
-  end
+  end  
 
   def list_all_people
     @people.each { |person| puts "ID: #{person.id} Name: #{person.name} Age: #{person.age}" }

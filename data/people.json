@@ -1,29 +1,46 @@
 [
-    {
-      "type": "student",
-      "age": 20,
-      "classroom": "7",
-      "name": "Jiya",
-      "parent_permission": {
-        "parent_permission": "N"
-      },
-      "id": 120
+  {
+    "type": "student",
+    "age": 20,
+    "classroom": "7",
+    "name": "Jiya",
+    "parent_permission": {
+      "parent_permission": "N"
     },
-    {
-      "type": "teacher",
-      "age": 56,
-      "specialization": "Web",
-      "name": "tari",
-      "id": 130
+    "id": 120
+  },
+  {
+    "type": "teacher",
+    "age": 56,
+    "specialization": "Web",
+    "name": "tari",
+    "id": 130
+  },
+  {
+    "type": "student",
+    "age": 18,
+    "classroom": "6",
+    "name": "Piya",
+    "parent_permission": {
+      "parent_permission": "Y"
     },
-    {
-      "type": "student",
-      "age": 18,
-      "classroom": "6",
-      "name": "Piya",
-      "parent_permission": {
-        "parent_permission": "Y"
-      },
-      "id": 100
-    }
-  ]
+    "id": 100
+  },
+  {
+    "type": "teacher",
+    "age": 29,
+    "specialization": "Acting",
+    "name": "Mehzabien",
+    "id": 2
+  },
+  {
+    "type": "student",
+    "age": 24,
+    "classroom": "CLASS C",
+    "name": "Tasnia",
+    "parent_permission": {
+      "parent_permission": "Y"
+    },
+    "id": 333
+  }
+]
