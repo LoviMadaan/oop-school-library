@@ -10,5 +10,11 @@
     "date": "4000",
     "person": 130,
     "book": "Pari"
+  },
+  {
+    "type": "rental",
+    "date": "2022-03-01",
+    "person": 56,
+    "book": "Physics"
   }
 ]
