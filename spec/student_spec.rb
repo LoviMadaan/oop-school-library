@@ -1,5 +1,6 @@
 require_relative '../person'
 require_relative '../student'
+require_relative '../classroom'
 
 describe Student do
   context 'When student class is tested' do
@@ -14,5 +15,12 @@ describe Student do
       expect(student).to have_attributes(name: 'Lovi')
       expect(student).to have_attributes(classroom: 'First')
     end
+  end
+end
+
+describe '#play_hooky' do
+  it 'returns a string representing playing hooky' do
+    student = Student.new(25, 'First', 'Lovi', true)
+    expect(student.play_hooky).to eq('¯(ツ)/¯')
   end
 end
