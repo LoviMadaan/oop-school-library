@@ -63,6 +63,8 @@
 
 - Simple command-line interface.
 - Support for IRB input formats.
+- Create person(teacher, student), book, rental
+- Rent a book to a person
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

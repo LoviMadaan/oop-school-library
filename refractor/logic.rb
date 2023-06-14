@@ -61,7 +61,7 @@ class LogicInput
     print 'ID: '
     id = gets.chomp.to_i
     @app.create_teacher(age, specialization, name, id)
-    puts 'Person (Teacher) created successfully!'
+    puts 'Person(Teacher) created successfully!'
   end
 
   def create_person
