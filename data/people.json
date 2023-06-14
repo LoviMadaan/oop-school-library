@@ -35,12 +35,12 @@
   },
   {
     "type": "student",
-    "age": 19,
-    "classroom": "Class C",
-    "name": "Snigdha",
+    "age": 24,
+    "classroom": "CLASS C",
+    "name": "Tasnia",
     "parent_permission": {
       "parent_permission": "Y"
     },
-    "id": 107
+    "id": 333
   }
 ]
