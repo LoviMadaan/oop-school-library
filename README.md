@@ -63,6 +63,8 @@
 
 - Simple command-line interface.
 - Support for IRB input formats.
+- Create person(teacher, student), book, rental
+- Rent a book to a person
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,11 +127,11 @@ ruby filename.rb
 - Twitter: [@lovinarang](https://twitter.com/lovinarang)
 - LinkedIn: [LoviMadaan]https://www.linkedin.com/in/lovi-madaan-b27439175
 
-👤 **Christian Kiyong**
+👤 **MD Mursedul Islam Sumon**
 
-- GitHub: [krisbobo](https://github.com/krisbobo)
-- Twitter: [ChrisboboSys](https://twitter.com/ChrisboboSys)
-- LinkedIn: [kiyong-christian](https://linkedin.com/in/christian-kiyong)
+- GitHub: [krisbobo](https://github.com/sumon766)
+- Twitter: [ChrisboboSys](https://twitter.com/sumon766)
+- LinkedIn: [kiyong-christian](https://linkedin.com/in/sumon766)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
